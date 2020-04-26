@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="style.css" />
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+
     <title>Work Day Scheduler</title>
 </head>
 
@@ -19,7 +20,11 @@
     <header class="jumbotron">
         <h1 class="display-3">Work Day Scheduler</h1>
         <p class="lead">A simple calendar app for scheduling your work day</p>
+        <p id="currentDate" class="lead"></p>
         <p id="currentDay" class="lead"></p>
+        <p id="currentTime" class="lead"></p>
+        <p id="currentHour" class="lead"></p>
+
     </header>
     <div class="container">
         <h2>Get your day started!</h2>
@@ -38,64 +43,129 @@
         let eventEvent = $("<td>").text("What do you want to do?");
         let timeEvent = $(".timeslot");
         let timeInput = $(".insertHere");
-        let saveBtn = $(".saveBtn");
         let labelField = $("#label-input");
         let todoContainer = $(".time-block");
         let labelTime = ["12am", "1am", "2am", "3am", "4am", "5am", "6am", "7am", "8am", "9am", "10am", "11am", "12pm", "1pm", "2pm", "3pm", "4pm", "5pm", "6pm", "7pm", "8pm", "9pm", "10pm", "11pm"];
-
+        
         let todos = [];
         let items;
         let button = $("<button>");
         let createInput = $("<input>").attr("placeholder", "What shall we do today?").addClass("toDo-input");
+        let userInput = $(createInput).val();
 
-        let currentDay = moment().format('MMMM Do YYYY, h:mm:ss a');
+
+        init();
+
+        //Displays current date and time
+        let currentDate = moment().format('MMMM Do YYYY');
+        $("#currentDate").text(currentDate);
+
+        let currentDay = moment().format('dddd');
         $("#currentDay").text(currentDay);
 
+        let currentTime = moment().format('HH a');
+        $("#currentTime").text(currentTime)
+
+        let currentHours = moment.duration(2, 'hours');
+        $("#currentHour").text(currentHours)
+
+
+        //For loop to dynamically create timeblocks with input lines and buttons
         for (i = 0; i < 24; i++) {
             let button = $("<button>");
             button.addClass("saveBtn");
             button.text("Add Event");
+            button.attr("id", "hour-" + [i]);
             let createLabel = $("<label>").text(labelTime[i]);
-            let createInput = $("<input>").attr("placeholder", "What shall we do today?").addClass("toDo-input");
+            let createInput = $("<input>").attr("placeholder", "What shall we do today?").addClass("toDo-input").attr("id", "input-" + i);
             let sushi = todoContainer.append(createLabel);
             let gyro = todoContainer.append(createInput);
             let taco = sushi.append(gyro);
             let burrito = todoContainer.append(button);
             taco.append(burrito);
+            console.log(createInput)
+
+            
+            let now = Math.floor(Math.random(currentTime) + i);
+            if (now !== i) {
+                $("#input-" + i).addClass("past");
+            } else if (now === i) {
+                $("#input-" + i).addClass("present");
+            } else 
+                $("#input-" + i).addClass("future");
+
+        
+
+        console.log(now);
 
         }
 
 
-        localStorage.setItem("input", createInput.value);
-    
 
-        let iceCream = localStorage.getItem("input");
+        function init() {
 
-        todoContainer.click(function(event){
-            event.preventDefault();
+            let storedTodos = JSON.parse(localStorage.getItem("storedItem0"));
 
-            let task = $(".toDo-input").value;
-
-            let tasks;
-
-            if(localStorage.getItem(".toDo-input") === null) {
-                tasks = []
-            } else {
-                tasks = localStorage.getItem(".toDo-input");
+            if (storedTodos !== null) {
+                todos = storedTodos;
             }
 
-            //tasks.push(task);
-
-            localStorage.setItem(".toDo-input", JSON.stringify(tasks));
-
-            console.log(task);
+        }
 
 
-        });
-        
+        function storeTodos() {
+            localStorage.setItem("toDo-input", createInput.val());
 
-        
+        }
+
+        $(".saveBtn").on("click", function (event) {
+            event.preventDefault();
+            let buttonId = $(this).attr("id");
+            console.log(buttonId);
+            let userInput = $("#hour0").val();
+            localStorage.setItem("storeItem0", JSON.stringify(userInput))
+            console.log(localStorage.setItem("storeItem0", JSON.stringify(userInput)));
+
+            //todos.push(userInput);
+            createInput.value = "";
+
+
+            storeTodos();
+
+        })
+
+
+
+
     </script>
+
+    <!-- let iceCream = JSON.parse(localStorage.getItem("toDo-input"));
+
+localStorage.setItem("toDo-input", JSON.stringify(iceCream));
+
+
+
+addEventListener("click", function(event){
+    event.preventDefault();
+
+    let task = $(".toDo-input").value;
+
+    let tasks;
+
+    if(localStorage.getItem(".toDo-input") === null) {
+        tasks = []
+    } else {
+        tasks = localStorage.getItem(".toDo-input");
+    }
+
+    //tasks.push(task);
+
+    localStorage.setItem(".toDo-input", JSON.stringify(tasks));
+
+    console.log(localStorage.setItem("toDo-input", JSON.stringify(iceCream)));
+
+
+}); -->
 
 
 </body>

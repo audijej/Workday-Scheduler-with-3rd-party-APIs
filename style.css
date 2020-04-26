@@ -43,7 +43,7 @@ body {
   }
   
   .past {
-    background-color: #d3d3d3;
+    background-color: yellow;
     color: white;
   }
   
@@ -66,8 +66,9 @@ body {
     padding: 20px;
   }
   
-  .saveBtn i:hover {
+  .saveBtn:hover {
     font-size: 20px;
+    background-color: green;
     transition: all .3s ease-in-out;
   }
 
