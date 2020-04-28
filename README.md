@@ -27,4 +27,4 @@ Enjoy and hopefully you can find this daily planner useful.
 <a href="https://audijej.github.io/Workday-Scheduler-with-3rd-party-APIs/">Workday and Daily Schedule Planner</a>
 <br>
 <br>
-<img src =".photos/Work-Day-Scheduler-Trim.mp4" alt="WorkDay schduler example" width="400px" height="400px"> 
+<img src ="./photos/Work-Day-Scheduler-Trim.mp4" alt="WorkDay schduler example" width="400px" height="400px"> 
