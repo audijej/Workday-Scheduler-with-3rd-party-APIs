@@ -23,3 +23,8 @@ To clear any data, simply delete the text in the input field and click the save 
 all the data in the input field and save. The next time you open your browser, you will have a clean template to plan for your next day.
 
 Enjoy and hopefully you can find this daily planner useful.
+
+<a href="https://audijej.github.io/Workday-Scheduler-with-3rd-party-APIs/">Workday and Daily Schedule Planner</a>
+<br>
+<br>
+<img src =".photos/Work-Day-Scheduler.mp4" alt="WorkDay schduler example" width="400px" height="400px"> 
