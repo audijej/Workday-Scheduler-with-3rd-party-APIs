@@ -1,6 +1,6 @@
 # Workday-Scheduler-with-3rd-party-APIs
 
-Workday Scheduler and Daily Planner using 3rd part APIs
+# Workday Scheduler and Daily Planner using 3rd part APIs
 
 
 
@@ -24,7 +24,6 @@ all the data in the input field and save. The next time you open your browser, y
 
 Enjoy and hopefully you can find this daily planner useful.
 
-<a href="https://audijej.github.io/Workday-Scheduler-with-3rd-party-APIs/">Workday and Daily Schedule Planner</a>
-<br>
-<br>
-<img src ="./photos/Work-Day-Scheduler-Trim.mp4" alt="WorkDay schduler example" width="400px" height="400px"> 
+[Workday Scheduler]("https://audijej.github.io/Workday-Scheduler-with-3rd-party-APIs/")
+
+![Image of Workday Scheduler](/photos/WorkDaySchedulerApplication.gif) 
